@@ -54,7 +54,7 @@ resource "null_resource" "ex1" {
 resource "null_resource" "ex2" {
     depends_on   = [null_resource.ex1]
     provisioner "local-exec" {
-    command = "docker build -t lipudemoregistry.azurecr.io/100jokes:latest . && docker push lipudemoregistry.azurecr.io/100jokes && helm template chart --output-dir deploy/base && kubectl create -k deploy/production"
+    command = "docker build -t lipudemoregistry.azurecr.io/100jokes:latest . && docker push lipudemoregistry.azurecr.io/100jokes && helm template chart --output-dir deploy/base && kubectl applyhelm template chart --output-dir deploy/base && kubectl create -k deploy/production -k deploy/production"
     }
 }
 
