@@ -1,5 +1,5 @@
 namePrefix: production-
 resources:
-- ../base
+- ../base/chart/templates
 patchesStrategicMerge:
 - deployment.yaml
